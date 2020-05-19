@@ -8,15 +8,15 @@ class Employee {
     }
 
     getName() {
-        console.log("whee")
+        return this.name
     }
 
     getID() {
-        console.log("whee1")
+        return this.id
     }
 
     getEmail() {
-        console.log("whee2")
+        return this.email
     }
 
     getRole() {

@@ -43,6 +43,21 @@ inquirer.prompt ([
     }
 ]).then(function (responses) {
         if (responses.employeeType === "Engineer") {
+           ifEngineer();
+        }
+        else if (responses.employeeType === "Intern") {
+            ifIntern(); 
+        }
+        else if (responses.employeeType === "I don't have anymore team members to add") {
+            console.log("Thank you for adding your employees!");
+            
+        }
+          
+    });
+
+    //end of primary inquirer
+
+    function ifEngineer () {
             console.log("You have chosen Engineer");
             inquirer.prompt ([
                 {
@@ -62,45 +77,91 @@ inquirer.prompt ([
                 },
                 {
                     type: "input",
-                    name: "engineerGitHub",
+                    name: "github",
                     message: "What is your engineer's GitHub username?"
                 },
+                {
+                    type: "list",
+                    name: "employeeType",
+                    message: "What type of team member would you like to add?",
+                    choices: [
+                        "Engineer",
+                        "Intern",
+                        "I don't have anymore team members to add"
+                    ]
+                }
 
-            ])
-        }
-        else if (responses.employeeType === "Intern") {
-            console.log("You have chosen Intern");
-            inquirer.prompt ([
-                {
-                    type: "input",
-                    name: "internName",
-                    message: "What is your intern's name?"
-                },
-                {
-                    type: "input",
-                    name: "internID",
-                    message: "What is your interns's ID?"
-                },
-                {
-                    type: "input",
-                    name: "internEmail",
-                    message: "What is your intern's email?"
-                },
-                {
-                    type: "input",
-                    name: "internSchool",
-                    message: "What is your intern's school?"
-                },
+            ]).then(function (responses) {
+                if (responses.employeeType === "Engineer") {
+                    // var newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github)
+                    ifEngineer();
+                }
+                else if (responses.employeeType === "Intern") {
+                    ifIntern();
+                }
+                else if (responses.employeeType === "I don't have anymore team members to add") {
+                    console.log("Thank you for adding your employees!");
+                        
+                }
+        });
+    }
+    
+    function ifIntern() {
+        console.log("You have chosen Intern");
+        inquirer.prompt ([
+            {
+                type: "input",
+                name: "internName",
+                message: "What is your intern's name?"
+            },
+            {
+                type: "input",
+                name: "internID",
+                message: "What is your interns's ID?"
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "What is your intern's email?"
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What is your intern's school?"
+            },
+            {
+                type: "list",
+                name: "employeeType",
+                message: "What type of team member would you like to add?",
+                choices: [
+                    "Engineer",
+                    "Intern",
+                    "I don't have anymore team members to add"
+                ]
+            }
 
-            ])
-        }
-        else if (responses.employeeType === "I don't have anymore team members to add") {
-            console.log("Thank you for adding your employees!");
-            
-        }
-          
-    });
+        ]).then(function (responses) {
+            console.log(responses.internEmail)
+            const newIntern = new Intern(responses.internName, responses.internID, responses.internEmail, responses.internSchool);
+                newIntern.getSchool();
+                newIntern.getRole();
+            if (responses.employeeType === "Engineer") {
+                ifEngineer();
+            }
+            else if (responses.employeeType === "Intern") {
+                // var newIntern = new Intern(responses.internName, responses.internID, reponses.internEmail, responses.internSchool);
+                // newIntern.getSchool();
+                // newIntern.getRole();
+                ifIntern();
+            }
+            else if (responses.employeeType === "I don't have anymore team members to add") {
+                console.log("Thank you for adding your employees!");
+                    
+            }
+        });
+    }
 
+    
 
 
 // Write code to use inquirer to gather information about the development team members,
