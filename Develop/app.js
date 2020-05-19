@@ -92,6 +92,9 @@ inquirer.prompt ([
                 }
 
             ]).then(function (responses) {
+                const newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github);
+                newEngineer.getGithub();
+                newEngineer.getRole();
                 if (responses.employeeType === "Engineer") {
                     // var newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github)
                     ifEngineer();
@@ -149,9 +152,6 @@ inquirer.prompt ([
                 ifEngineer();
             }
             else if (responses.employeeType === "Intern") {
-                // var newIntern = new Intern(responses.internName, responses.internID, reponses.internEmail, responses.internSchool);
-                // newIntern.getSchool();
-                // newIntern.getRole();
                 ifIntern();
             }
             else if (responses.employeeType === "I don't have anymore team members to add") {
