@@ -10,6 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+var objectArray = [];
+
 inquirer.prompt ([
     {
         type: "input",
@@ -42,6 +44,9 @@ inquirer.prompt ([
         ]
     }
 ]).then(function (responses) {
+    const newManager = new Manager(responses.managerName, responses.managerID, responses.managerEmail, responses.managerOffice);
+    console.log(newManager);
+    objectArray.push(newManager);
         if (responses.employeeType === "Engineer") {
            ifEngineer();
         }
@@ -93,8 +98,9 @@ inquirer.prompt ([
 
             ]).then(function (responses) {
                 const newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github);
-                newEngineer.getGithub();
-                newEngineer.getRole();
+                console.log(newEngineer);
+                objectArray.push(newEngineer);
+                // var userName = "github.com/" + responses.github
                 if (responses.employeeType === "Engineer") {
                     // var newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github)
                     ifEngineer();
@@ -146,8 +152,8 @@ inquirer.prompt ([
         ]).then(function (responses) {
             console.log(responses.internEmail)
             const newIntern = new Intern(responses.internName, responses.internID, responses.internEmail, responses.internSchool);
-                newIntern.getSchool();
-                newIntern.getRole();
+            console.log(newIntern);
+            objectArray.push(newIntern);
             if (responses.employeeType === "Engineer") {
                 ifEngineer();
             }
@@ -156,6 +162,7 @@ inquirer.prompt ([
             }
             else if (responses.employeeType === "I don't have anymore team members to add") {
                 console.log("Thank you for adding your employees!");
+                console.log(objectArray);
                     
             }
         });
