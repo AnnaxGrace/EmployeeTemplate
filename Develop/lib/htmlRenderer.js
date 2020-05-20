@@ -20,7 +20,6 @@ const render = employees => {
     .map(intern => renderIntern(intern))
   );
 
-  console.log(html);
   return renderMain(html.join(""));
 
 };

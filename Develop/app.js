@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const { html } = require("./lib/htmlRenderer");
+// const html = require("./lib/htmlRenderer");
 
 var objectArray = [];
 
@@ -173,7 +173,8 @@ inquirer.prompt ([
     }
 
 function makeHTML() {
-    render(objectArray);
+    // render(objectArray);
+    const html = render(objectArray)
         console.log("why no work?")
                 
 
