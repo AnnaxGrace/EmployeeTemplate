@@ -8,13 +8,11 @@ class Intern extends Employee {
     }
 
     getSchool() {
-        console.log("this getschool works runs")
         return this.school
         
     }
 
     getRole() {
-        console.log("this getRole works runs")
         return "Intern"
 
     }

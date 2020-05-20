@@ -57,13 +57,7 @@ inquirer.prompt ([
         }
         else if (responses.employeeType === "I don't have anymore team members to add") {
             console.log("Thank you for adding your employees!");
-            render(objectArray);
-                console.log("why no work?")
-                
-
-                fs.writeFile(outputPath, html, function(err) {
-                    if (err) throw err
-                });
+            makeHTML();
             
             
         }
@@ -120,7 +114,7 @@ inquirer.prompt ([
                 }
                 else if (responses.employeeType === "I don't have anymore team members to add") {
                     console.log("Thank you for adding your employees!");
-                        
+                    makeHTML(); 
                 }
         });
     }
@@ -172,24 +166,21 @@ inquirer.prompt ([
             }
             else if (responses.employeeType === "I don't have anymore team members to add") {
                 console.log("Thank you for adding your employees!");
-                console.log(objectArray);
-
-                
-                                    
-                // render(objectArray);
-                // console.log("why no work?")
-
-                // var newHTML = render.data
-                // console.log(render.data);
-
-                // fs.writeFile(outputPath, newHTML, function(err) {
-                //     if (err) throw err;
-                // });
+                makeHTML();
                     
             }
         });
     }
 
+function makeHTML() {
+    render(objectArray);
+        console.log("why no work?")
+                
+
+        fs.writeFile(outputPath, html, function(err) {
+        if (err) throw err
+        });
+}
 // render(objectArray);
 
 // var newHTML = render.data
