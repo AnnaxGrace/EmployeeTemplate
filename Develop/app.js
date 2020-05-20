@@ -10,6 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const { html } = require("./lib/htmlRenderer");
+
 var objectArray = [];
 
 inquirer.prompt ([
@@ -57,10 +59,9 @@ inquirer.prompt ([
             console.log("Thank you for adding your employees!");
             render(objectArray);
                 console.log("why no work?")
-                console.log(html)
                 
 
-                fs.writeFile(outputPath, newHTML, function(err) {
+                fs.writeFile(outputPath, html, function(err) {
                     if (err) throw err
                 });
             
