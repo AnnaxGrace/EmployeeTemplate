@@ -55,6 +55,15 @@ inquirer.prompt ([
         }
         else if (responses.employeeType === "I don't have anymore team members to add") {
             console.log("Thank you for adding your employees!");
+            render(objectArray);
+                console.log("why no work?")
+                console.log(html)
+                
+
+                fs.writeFile(outputPath, newHTML, function(err) {
+                    if (err) throw err
+                });
+            
             
         }
           
@@ -163,13 +172,31 @@ inquirer.prompt ([
             else if (responses.employeeType === "I don't have anymore team members to add") {
                 console.log("Thank you for adding your employees!");
                 console.log(objectArray);
+
+                
+                                    
+                // render(objectArray);
+                // console.log("why no work?")
+
+                // var newHTML = render.data
+                // console.log(render.data);
+
+                // fs.writeFile(outputPath, newHTML, function(err) {
+                //     if (err) throw err;
+                // });
                     
             }
         });
     }
 
-    
+// render(objectArray);
 
+// var newHTML = render.data
+// console.log(render.data);
+
+// fs.writeFile(outputPath, newHTML, function(err) {
+//     if (err) throw err;
+// });
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
