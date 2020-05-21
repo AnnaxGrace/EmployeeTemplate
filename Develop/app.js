@@ -45,7 +45,6 @@ inquirer.prompt ([
     }
 ]).then(function (responses) {
     const newManager = new Manager(responses.managerName, responses.managerID, responses.managerEmail, responses.managerOffice);
-    console.log(newManager);
     objectArray.push(newManager);
         if (responses.employeeType === "Engineer") {
            ifEngineer();
@@ -100,7 +99,6 @@ inquirer.prompt ([
 
             ]).then(function (responses) {
                 const newEngineer = new Engineer(responses.engineerName, responses.engineerID, responses.engineerEmail, responses.github);
-                console.log(newEngineer);
                 objectArray.push(newEngineer);
                 if (responses.employeeType === "Engineer") {
                     ifEngineer();
@@ -152,7 +150,6 @@ inquirer.prompt ([
         ]).then(function (responses) {
             console.log(responses.internEmail)
             const newIntern = new Intern(responses.internName, responses.internID, responses.internEmail, responses.internSchool);
-            console.log(newIntern);
             objectArray.push(newIntern);
             if (responses.employeeType === "Engineer") {
                 ifEngineer();
@@ -170,7 +167,6 @@ inquirer.prompt ([
 
 function makeHTML() {
     const html = render(objectArray)
-        console.log("why no work?")
                 
 
         fs.writeFile(outputPath, html, function(err) {
