@@ -18,11 +18,15 @@ MIT
 ### Contributing
 Contributors follow contributors convenant after July 2020. Before then no contributors are allowed.
 ### Tests
-npm tests
+npm test
 ### Questions
 * Github username: annaxgrace
 * Email: anna.grace.conover@gmail.com
 * GitHub repository URL: https://github.com/AnnaxGrace/EmployeeTemplate
+
+<img src="Screen Shot 2020-05-21 at 6.35.12 PM.png"
+     alt="Test photo"
+     style="float: left; margin-right: 10px;" />
 
 <img src="https://avatars2.githubusercontent.com/u/61895571?s=460&u=51c1a5027c2ee815104a12b2aded2bcf51b2c6b7&v=4"
      alt="Contributer Photo"
